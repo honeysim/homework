@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+        <meta charset="UTF-8">
+        <title>무엇을 팔아볼까요?</title>
+        <style>
+            .imgbox {
+                margin: 20px auto;
+                border: solid mediumaquamarine;
+                width: 900px;
+                text-align: center;
+            }
+
+            .img {
+
+            }
+
+            /* 이미지가 바뀔 때 마다 img태그로 관리를 해주면서 자동으로 비율에 맞춰서 테두리 넣고 싶은데 시간 관계상 gg*/
+            .ProductName {
+                font-family: '궁서';
+                font-size: 50px;
+            }
+
+            .ProductPrice {
+                margin-left: 50px;
+                font-size: 25px;
+            }
+
+            .wrap{
+                padding : 100px;
+            }
+
+            .wrap2 {
+                width: 1200px;
+                margin: auto;
+            }
+
+            .Product {
+                margin: 30px;
+            }
+
+            .btn {
+                margin: auto;
+
+            }
+
+        </style>
+        <script>
+            function complete() {
+                alert('주문이 완료되었습니다!');
+            }
+        </script>
+
+
+    </head>
+    <div class="wrap">
+
+        <div class="imgbox">
+            <div class="img">
+                <img src="https://i.ibb.co/6nF1GLL/image.png">
+            </div>
+        </div>
+
+        <div class="wrap2">
+            <div class="Product">
+                <span class="ProductName">지금 새벽 2시22분인데 배고프네요</span>
+                <span class="ProductPrice"> 가격 : 18000000원 / 개</span>
+                <br><br>
+                <h2>
+                    치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다치킨먹고싶다</h2>
+
+            </div>
+            <form>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">주문자 성함</label>
+                    <div class="col-sm-10">
+                        <input type="name" class="form-control form-control-lg" id="colFormLabelLg">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">주소</label>
+                    <div class="col-sm-10">
+                        <input type="address" class="form-control form-control-lg" id="colFormLabelLg">
+                    </div>
+                </div>
+                <div>
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">수량</label>
+                    <select class="form-control" style="font-size : 20px; margin-bottom: 20px; height: 50px">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>더먹으려구..?</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">주소</label>
+                    <div class="col-sm-10">
+                        <input type="address" class="form-control form-control-lg" id="colFormLabelLg">
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button type="button" onclick="complete()" class="btn btn-primary btn-lg btn-block">주문하기!</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</html>
