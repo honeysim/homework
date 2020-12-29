@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+        <meta charset="UTF-8">
+        <title>무엇을 팔아볼까요?</title>
+        <style>
+            .imgbox {
+                margin: 20px auto;
+                border: solid mediumaquamarine;
+                width: 900px;
+                text-align: center;
+            }
+
+            .ProductName {
+                font-family: '궁서';
+                font-size: 50px;
+            }
+
+            .ProductPrice {
+                margin-left: 50px;
+                font-size: 25px;
+            }
+
+            .wrap {
+                padding: 100px;
+            }
+
+            .wrap2 {
+                width: 1200px;
+                margin: auto;
+            }
+
+            .Product {
+                margin: 30px;
+            }
+
+            .btn {
+                margin: auto;
+
+            }
+
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#orders-box").html("");
+                showOrder();
+            });
+
+            function neworder() {
+                let name = $('#name').val()
+                let address = $('#address').val()
+                let number = $('#number').val()
+                let phonenumber = $('#phonenumber').val()
+
+                if (name =="") {
+                    alert("성명을 입렵해주세요");
+                    $("#name").focus();
+                    return;
+                } else if (address == "") {
+                    alert("주소를 입력해주세요");
+                    $("#address").focus();
+                    return;
+                } else if (phonenumber == "") {
+                    alert("핸드폰 번호를 입력해주세요");
+                    $("#phonenumber").focus();
+                    return;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/order",
+                    data: {name_give: name, number_give: number, address_give: address, phonenumber_give: phonenumber},
+                    success: function (response) {
+                        if (response['result'] == 'success') {
+                            alert('주문 완료!');
+                            window.location.reload();
+                        }
+                    }
+                })
+            }
+            function showOrder() {
+                $.ajax({
+                    type: "GET",
+                    url: "/order",
+                    data: {},
+                    success: function (response) {
+                        if (response["result"] == "success") {
+                            let orders = response["orders"];
+                            for (let i = 0; i < orders.length; i++) {
+                                make_order(orders[i]["name"], orders[i]["address"], orders[i]["number"], orders[i]["phonenumber"])
+                            }
+                        } else {
+                            alert("주문 기록을 받아오지 못했습니다");
+                        }
+                    }
+                })
+            }
+
+            function make_order(name, address, number, phonenumber) {
+                let NewOrder =
+                    `<tr>
+                        <td>${name}</td>
+                        <td>${address}</td>
+                        <td>$(number)</td>
+                        <td>${phonenumber}</td>
+                    </tr>`;
+                $("#orders-box").append(NewOrder);
+
+            }
+
+
+        </script>
+
+
+    </head>
+    <div class="wrap">
+
+        <div class="imgbox">
+            <div class="img">
+                <img src="https://i.ibb.co/6nF1GLL/image.png">
+            </div>
+        </div>
+
+        <div class="wrap2">
+            <div class="Product">
+                <span class="ProductName">지금 새벽 2시22분인데 배고프네요</span>
+                <span class="ProductPrice"> 가격 : 18000000원 / 개</span>
+                <br><br>
+                <h2> BHC 황금올리브 </h2>
+
+            </div>
+            <form>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label col-form-label-lg">주문자 성함</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-lg" id="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label col-form-label-lg">주소</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-lg" id="address">
+                    </div>
+                </div>
+                <div>
+                    <label class="col-sm-2 col-form-label col-form-label-lg">수량</label>
+                    <select class="form-control" id="number" style="font-size : 20px; margin-bottom: 20px; height: 50px">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>더먹으려구..?</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label col-form-label-lg">핸드폰 번호</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-lg" id="phonenumber">
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button onclick="neworder()" class="btn btn-primary btn-lg btn-block">주문하기!</button>
+                <div class="orders">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">성명</th>
+                            <th scope="col">주소</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">핸드폰번호</th>
+                        </tr>
+                        </thead>
+                        <tbody id="orders-box">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</html>
