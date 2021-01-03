@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <title>Title</title>
+        <style>
+            .title {
+                padding-top: 50px;
+                margin-bottom: 100px;
+
+            }
+
+            .wrap {
+                width: 1500px;
+                margin: auto;
+            }
+
+
+        </style>
+
+        <script>
+            function inputdata() {
+                let data = $('#data').val()
+
+                $.ajax({
+                    type : "post",
+                    url : "/scatterplot",
+                    data :{data_give: data},
+                    success: function(response) {
+                        if (response["result"] == "success") {
+                            alert("그리기 완료")
+                            window.location.reload();
+                        } else {
+                            alert("서버 오류")
+                        }
+                }
+
+                })
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="title" style="text-align : center">
+                <a href="https://naver.com" style="font-size : 50px">Graphic.com</a>
+                <br><br>
+                <span style="font-size: 30px">Draw simple graph or chart</span>
+            </div>
+            <hr>
+            <div class="input-group">
+                <span class="input-group-text" style="font-size : 40px;">Copy Excel data</span>
+                <textarea id = "data" class="form-control" aria-label="With textarea"></textarea>
+            </div>
+            <button onclick = "inputdata()">데이터 입력</button>
+        </div>
+
+    </body>
+</html>
