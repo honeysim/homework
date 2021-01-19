@@ -2,8 +2,11 @@
 <html lang="kr">
 
     <head>
-       <!-- Required meta tags -->
+        <!-- Required meta tags -->
         <meta charset="UTF-8">
+        <meta property="og:title" content="내 사이트의 제목">
+        <meta property="og:description" content="보고 있는 페이지의 내용 요약">
+        <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -37,7 +40,8 @@
                 width: 200px;
                 height: 200px;
             }
-            .ChartBox{
+
+            .ChartBox {
                 height: 390px;
             }
 
@@ -50,6 +54,7 @@
                 padding-bottom: 50px;
                 font-size: 25px;
             }
+
             a {
                 text-decoration: none;
                 font-family: "Do Hyeon", sans-serif;
@@ -60,52 +65,17 @@
     <body>
         <div class="wrap">
             <div class="title" style="text-align : center">
-                <a href="https://naver.com" style="font-size : 50px">Graphic.com</a>
+                <a href="https://localhost:5000 style=" font-size : 50px">Graphic.com</a>
                 <br><br>
                 <span style="font-size: 30px">Draw simple graph or chart</span>
             </div>
             <hr>
 
             <div class="ChartBox">
-                <div class="chart">
-                    <a href="https://naver.com">
-                        <img src="barchart.PNG" class="chart_img" alt="...">
-                        <div>
-                            <p>bar chart</p>
-                        </div>
-                    </a>
-                </div>
 
                 <div class="chart">
-                    <a href="https://naver.com">
-                        <img src="line%20chart.PNG" class="chart_img" alt="...">
-                        <div id = "chart_text">
-                            <p>line chart</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="chart">
-                    <a href="https://naver.com">
-                        <img src="piechart.PNG" class="chart_img" alt="...">
-                        <div>
-                            <p>pie chart</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="chart">
-                    <a href="https://naver.com">
-                        <img src="stacked%20bar%20chart.PNG" class="chart_img" alt="...">
-                        <div>
-                            <p>stacked bar chart</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <hr>
-            <div class="ChartBox">
-                <div class="chart">
-                    <a href="https://naver.com">
-                        <img src="scatterplot.PNG" class="chart_img" alt="...">
+                    <a href="http://localhost:5000/scatterplot">
+                        <img src="static/image/scatterplot.PNG" class="chart_img" alt="...">
                         <div>
                             <p>scatter plot</p>
                         </div>
@@ -114,7 +84,7 @@
 
                 <div class="chart">
                     <a href="https://naver.com">
-                        <img src="scatterplot_matrix.PNG" class="chart_img" alt="...">
+                        <img src="static/image/scatterplot_matrix.PNG" class="chart_img" alt="...">
                         <div>
                             <p>scatter plot matrix</p>
                         </div>
@@ -122,7 +92,7 @@
                 </div>
                 <div class="chart">
                     <a href="https://naver.com">
-                        <img src="histogram.PNG" class="chart_img" alt="...">
+                        <img src="static/image/histogram.PNG" class="chart_img" alt="...">
                         <div>
                             <p>histogram</p>
                         </div>
@@ -130,7 +100,7 @@
                 </div>
                 <div class="chart">
                     <a href="https://naver.com">
-                        <img src="boxplot.PNG" class="chart_img" alt="...">
+                        <img src="static/image/boxplot.PNG" class="chart_img" alt="...">
                         <div>
                             <p>box plot</p>
                         </div>
